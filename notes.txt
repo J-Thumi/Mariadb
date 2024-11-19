@@ -1,0 +1,79 @@
+ Secure the Installation
+
+Run the security script to secure MariaDB:
+
+sudo mysql_secure_installation
+
+    Set a root password.
+    Remove anonymous users.
+    Disable remote root login.
+    Remove test databases.
+    Reload privilege tables.
+
+5. Access MariaDB
+
+Log in as the root user:
+
+mariadb -u root -p
+
+Enter the password you set during the secure installation process.
+6. Basic Commands
+
+Here are some essential commands to manage your databases:
+Create a Database
+
+CREATE DATABASE my_database;
+
+Show Databases
+
+SHOW DATABASES;
+
+Use a Database
+
+USE my_database;
+
+Create a Table
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+Insert Data
+
+INSERT INTO users (name, email) VALUES ('Josphat', 'josphat@example.com');
+
+Query Data
+
+SELECT * FROM users;
+
+Update Data
+
+UPDATE users SET email = 'newemail@example.com' WHERE name = 'Josphat';
+
+Delete Data
+
+DELETE FROM users WHERE name = 'Josphat';
+
+Drop a Table
+
+DROP TABLE users;
+
+Drop a Database
+
+DROP DATABASE my_database;
+
+7. Exit MariaDB
+
+EXIT;
+
+8. Backup and Restore
+Backup a Database
+
+mysqldump -u root -p my_database > my_database_backup.sql
+
+Restore a Database
+
+mysql -u root -p my_database < my_database_backup.sql
